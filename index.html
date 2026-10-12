@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ondo H1</title>
+  <meta name="description" content="Ondo H1: an interactive 3D headphone experience that comes apart as you scroll. Built with Three.js.">
+  <meta name="theme-color" content="#0a0a0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!--BODY-START-->
+<canvas id="scene" aria-label="Interactive 3D model of the Ondo H1 headphones"></canvas>
+<div class="veil veil-l" id="veilL"></div>
+<div class="veil veil-r" id="veilR"></div>
+<div class="veil veil-t" id="veilT"></div>
+<div class="progress"><span id="progress"></span></div>
+
+<header class="topbar">
+  <div class="brand">ondo<span>H1</span></div>
+  <nav class="links" id="links" aria-label="Sections"></nav>
+  <button class="cta" id="ctaTop" type="button">Pre-order</button>
+</header>
+
+<div class="callout" id="callout" aria-hidden="true"><div class="dot"></div><div class="tag" id="calloutText"></div></div>
+
+<main>
+  <section class="hero" id="intro" data-label="Intro">
+    <div class="panel">
+      <p class="eyebrow">Ondo H1 · Wireless over-ear</p>
+      <h1>Sound,<br><em>laid bare.</em></h1>
+      <p class="lede">Scroll to take it apart. Every layer is there for a reason.</p>
+      <div class="hint"><span><kbd>Scroll</kbd> open</span><span><kbd>Drag</kbd> rotate</span><span><kbd>Click</kbd> a part</span></div>
+      <p class="fallback">Your browser doesn't support WebGL, so the 3D model can't be shown.</p>
+    </div>
+  </section>
+
+  <section class="left" id="driver" data-label="Driver" data-part="driver">
+    <div class="panel">
+      <p class="eyebrow">01 — Driver</p>
+      <h2>40 mm of pure intent.</h2>
+      <p class="body">A beryllium-coated diaphragm moves fast enough to keep bass tight and highs clean. Copper voice coil, neodymium magnet, tuned separately for each ear.</p>
+      <dl class="specs">
+        <dt>Frequency</dt><dd>4 Hz – 40 kHz</dd>
+        <dt>Impedance</dt><dd>32 Ω</dd>
+        <dt>Sensitivity</dt><dd>105 dB SPL</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="right" id="battery" data-label="Battery" data-part="battery">
+    <div class="panel">
+      <p class="eyebrow">02 — Battery</p>
+      <h2>60 hours. One charge.</h2>
+      <p class="body">A lithium-polymer cell in the left cup runs for 60 hours with noise cancelling on. Ten minutes on USB-C buys you six more.</p>
+      <dl class="specs">
+        <dt>Capacity</dt><dd>1000 mAh</dd>
+        <dt>Playback</dt><dd>60 h, ANC on</dd>
+        <dt>Fast charge</dt><dd>10 min → 6 h</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="left" id="anc" data-label="ANC" data-part="pcb">
+    <div class="panel">
+      <p class="eyebrow">03 — Noise cancelling</p>
+      <h2>Eight mics. Zero noise.</h2>
+      <p class="body">Eight microphones ring the board in the right cup. The ANC chip listens to the room and answers with an inverse wave before it reaches your ear.</p>
+      <dl class="specs">
+        <dt>Microphones</dt><dd>8</dd>
+        <dt>Bluetooth</dt><dd>5.4</dd>
+        <dt>Codecs</dt><dd>LDAC · AAC · SBC</dd>
+        <dt>Latency</dt><dd>40 ms game mode</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="right" id="comfort" data-label="Comfort" data-part="cushion">
+    <div class="panel">
+      <p class="eyebrow">04 — Comfort</p>
+      <h2>Forget you're wearing them.</h2>
+      <p class="body">Memory foam warms to the shape of your head and seals out the room. Cushions snap on with magnets and swap in seconds.</p>
+      <dl class="specs">
+        <dt>Weight</dt><dd>254 g</dd>
+        <dt>Clamp force</dt><dd>4.2 N</dd>
+        <dt>Cover</dt><dd>Protein leather</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section class="left" id="finish" data-label="Finish">
+    <div class="panel">
+      <p class="eyebrow">05 — Yours</p>
+      <h2>Pick your finish.</h2>
+      <p class="body">Three colours, one obsession. Drag the model to see it from every angle.</p>
+      <div class="swatches" role="group" aria-label="Finish">
+        <button class="swatch" id="sw-graphite" type="button" data-shell="#2a2c31" data-leather="#1b1c1f" aria-pressed="true"><i style="background:#2a2c31"></i>Graphite</button>
+        <button class="swatch" id="sw-sand" type="button" data-shell="#cbbda6" data-leather="#a8977e" aria-pressed="false"><i style="background:#cbbda6"></i>Sand</button>
+        <button class="swatch" id="sw-midnight" type="button" data-shell="#1f2c47" data-leather="#151b27" aria-pressed="false"><i style="background:#1f2c47"></i>Midnight</button>
+      </div>
+      <div class="buy">
+        <p class="price">$349</p>
+        <p class="ship">Concept price · Ships never</p>
+      </div>
+      <p class="note">Ondo is a fictional brand. This page is a 3D web experience concept.</p>
+    </div>
+  </section>
+</main>
+<!--BODY-END-->
+
+<script src="js/vendor/three.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
